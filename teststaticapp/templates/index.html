@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Static App</title>
+    <link rel="stylesheet" href="{% static 'css/test.css' %}">
+</head>
+<body>
+    <h2>TEST STATIC APP PRJ-00</h2>
+    <!--  <img src="static/img/book512.png" alt="Book icon">  -->
+    <img src="{% static 'img/book512.png' %}">
+</body>
+</html>
