@@ -20,6 +20,7 @@ class Book(models.Model):
     name = models.CharField(max_length=30, verbose_name='Book title')
     short_description = models.CharField(max_length=30, verbose_name='Book description')
     price = models.IntegerField(default=0, verbose_name='Price')
+    photo = models.ImageField('Photo', upload_to='app_00/photos', default='', blank=True)
 
     class Meta:
         verbose_name = 'Book'
@@ -30,3 +31,8 @@ class Book(models.Model):
         return self.name
 
 
+class Order(models.Model):
+    book = models.ForeignKey(Book, verbose_name='Book title', on_delete=models.CASCADE)
+    name = models.CharField(max_length=30, verbose_name="Client name")
+    phone = models.CharField(max_length=30, verbose_name="Client phone")
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Date")

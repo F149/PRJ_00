@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block page %}
+    {% for book in books %}
+        <div>
+            <h2><a href="{% url 'book-detail' book_id=book.id %}">{{ book.name }}</a><h2>
+            {% if book.photo %}
+                <img src="{{ book.photo.url }}" alt="{{ book.name }}">
+            {% endif %}
+            <div>{{ book.short_description }}</div>
+            <div>{{ book.price | floatformat:"2" }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
