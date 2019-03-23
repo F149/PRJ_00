@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 #from teststaticapp import views
 from app_00 import views
+from validformapp import views
 
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('<int:book_id>/', views.book_detail, name='book-detail'),
+    path('formpage/', views.form_page, name='form-page'),
+    #path('', views.home, name='home'),
+    #path('<int:book_id>/', views.book_detail, name='book-detail'),
     #path('test_app/', include('testurlapp.test_urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
